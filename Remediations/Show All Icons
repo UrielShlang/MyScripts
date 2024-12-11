@@ -1,0 +1,1 @@
+Get-ChildItem ^"HKCU:\Control Panel\NotifyIconSettings^" ^| ForEach-Object { Set-ItemProperty -Path $_.PSPath -Name ^"IsPromoted^" -Type DWORD -Value 1 } > "%SCRIPT_PATH%"
