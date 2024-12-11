@@ -6,11 +6,11 @@ foreach ($userKey in $usersSubkeys) {
     $notifyIconSettingsPath = "$sid\Control Panel\NotifyIconSettings"
 
     # Check if the path exists
-    if (Test-Path -Path "Registry::HKEY_USERS\$notifyIconSettingsPath") {
-        Write-Host "Found path: HKEY_USERS\$notifyIconSettingsPath" -ForegroundColor Green
+    if (Test-Path -Path "Registry::$notifyIconSettingsPath") {
+        Write-Host "Found path: $notifyIconSettingsPath" -ForegroundColor Green
 
         # Get all subkeys under NotifyIconSettings
-        $childKeys = Get-ChildItem -Path "Registry::HKEY_USERS\$notifyIconSettingsPath"
+        $childKeys = Get-ChildItem -Path "Registry::$notifyIconSettingsPath"
 
         foreach ($childKey in $childKeys) {
             $childKeyPath = $childKey.PSPath
@@ -24,6 +24,6 @@ foreach ($userKey in $usersSubkeys) {
             }
         }
     } else {
-        Write-Host "Path not found: HKEY_USERS\$notifyIconSettingsPath" -ForegroundColor Yellow
+        Write-Host "Path not found: $notifyIconSettingsPath" -ForegroundColor Yellow
     }
 }
