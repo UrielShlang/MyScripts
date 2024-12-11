@@ -1,4 +1,6 @@
 # Get the current user's SID
+##
+##
 $userLogin = [System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value
 $sid = "HKEY_USERS\" + $userLogin
 

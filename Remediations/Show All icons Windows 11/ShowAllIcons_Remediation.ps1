@@ -1,5 +1,6 @@
-# Get all subkeys under HKEY_USERS
-#$usersSubkeys = Get-ChildItem -Path "Registry::HKEY_USERS"
+##
+##
+##
 $userLogin=[System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value
 $sid="HKEY_USERS\"+$userLogin
 
