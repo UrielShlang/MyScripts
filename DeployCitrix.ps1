@@ -21,9 +21,11 @@ if ($?) {
     exit 1
 }
 
+Start-Process -FilePath ".\ReceiverCleanupUtility.exe" -ArgumentList "/silent" -NoNewWindow -Wait
+
 # Reinstall with Force Install and Clean Install
 Write-Host "Starting reinstallation of Citrix Workspace App..."
-Start-Process -FilePath $installerPath -ArgumentList "/silent /forceinstall /noreboot /CleanInstall /AutoUpdateCheck=disabled /includeSSON /ENABLE_SSON=Yes /ALLOWADDSTORE=A /ALLOWSAVEPWD=N" -NoNewWindow -Wait
+Start-Process -FilePath $installerPath -ArgumentList "/silent /forceinstall /noreboot /AutoUpdateCheck=disabled /includeSSON /ENABLE_SSON=Yes /ALLOWADDSTORE=A /ALLOWSAVEPWD=N" -NoNewWindow -Wait
 
 # Check if the operation completed successfully
 if ($?) {
