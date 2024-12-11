@@ -2,7 +2,7 @@
 
 # Configuration for the installer file and download URL
 $installerPath = "./CitrixWorkspaceFullInstaller.exe"  # Update the path to the installer file
-$downloadUrl = "https://downloads.citrix.com/22865/CitrixWorkspaceFullInstaller.exe?__gda__=exp=1733837244~acl=/*~hmac=1f86a4177adb70ee27f634d75260f6857977eff294d721b43ea7260e79808a2a"
+$downloadUrl = "https://downloads.citrix.com/22865/CitrixWorkspaceFullInstaller.exe?__gda__=exp=1733919746~acl=/*~hmac=64895eb080a3a370ac40100da3da16c4c075ab04cedebfd33686d92d8311be40"
 
 # Function to download the installer if it does not exist
 function Download-Installer {
