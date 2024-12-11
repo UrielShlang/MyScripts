@@ -5,7 +5,8 @@ $CitrixVersion = (Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\Curre
 
 # Check if the version matches
 if ($CitrixVersion -eq "24.2.1000.1016") {
-    Exit 0  # Installed
+    Write-Host "Citrix 24.2.1000.1016 Installed!"
+	Exit 0  # Installed
 } else {
     Exit 1  # Not Installed
 }
