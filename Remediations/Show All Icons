@@ -1,5 +1,3 @@
-Get-ChildItem ^"HKCU:\Control Panel\NotifyIconSettings^" ^| ForEach-Object { Set-ItemProperty -Path $_.PSPath -Name ^"IsPromoted^" -Type DWORD -Value 1 } > "%SCRIPT_PATH%"
-
 # PowerShell script to search for "Control Panel\NotifyIconSettings" under HKEY_USERS
 # and add "IsPromoted" DWORD with value 1
 
@@ -7,20 +5,21 @@ Get-ChildItem ^"HKCU:\Control Panel\NotifyIconSettings^" ^| ForEach-Object { Set
 $usersSubkeys = Get-ChildItem -Path "HKU:\"
 
 foreach ($userKey in $usersSubkeys) {
-    $notifyIconSettingsPath = "$($userKey.PSChildName)\\Control Panel\\NotifyIconSettings"
+    $sid = $userKey.PSChildName
+    $notifyIconSettingsPath = "$sid\\Control Panel\\NotifyIconSettings"
 
     # Check if the path exists
-    if (Test-Path -Path "HKU:\$notifyIconSettingsPath") {
-        Write-Host "Found path: HKU:\$notifyIconSettingsPath" -ForegroundColor Green
+    if (Test-Path -Path "Registry::HKEY_USERS\\$notifyIconSettingsPath") {
+        Write-Host "Found path: HKEY_USERS\\$notifyIconSettingsPath" -ForegroundColor Green
 
         # Add the "IsPromoted" DWORD with value 1
         try {
-            New-ItemProperty -Path "HKU:\$notifyIconSettingsPath" -Name "IsPromoted" -PropertyType DWORD -Value 1 -Force
+            New-ItemProperty -Path "Registry::HKEY_USERS\\$notifyIconSettingsPath" -Name "IsPromoted" -PropertyType DWORD -Value 1 -Force
             Write-Host "Successfully added 'IsPromoted' to $notifyIconSettingsPath" -ForegroundColor Cyan
         } catch {
             Write-Host "Failed to add 'IsPromoted' to $notifyIconSettingsPath: $_" -ForegroundColor Red
         }
     } else {
-        Write-Host "Path not found: HKU:\$notifyIconSettingsPath" -ForegroundColor Yellow
+        Write-Host "Path not found: HKEY_USERS\\$notifyIconSettingsPath" -ForegroundColor Yellow
     }
 }
