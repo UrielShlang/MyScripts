@@ -3,9 +3,9 @@
 
 # Get all subkeys under HKEY_USERS
 $usersSubkeys = Get-ChildItem -Path "Registry::HKEY_USERS"
-
+$userKey = $usersSubkeys[6]
 foreach ($userKey in $usersSubkeys) {
-    $sid = $userKey.PSChildName
+    $sid = $userKey.Name
     $notifyIconSettingsPath = "$sid\Control Panel\NotifyIconSettings"
 
     # Check if the path exists
