@@ -1,0 +1,16 @@
+# Run the command and capture the output
+##
+##
+$output = sc.exe qc wssad
+
+# Check if the output contains the string
+if ($output -match "AUTO_START\s+\(DELAYED\)")
+{
+    Write-Output "The service startup type is AUTO_START (DELAYED)."
+    exit 0
+}
+else
+{
+    Write-Output "The service startup type is NOT AUTO_START (DELAYED)."
+    exit 1
+}
