@@ -18,7 +18,7 @@ $onUnlockTrigger = New-CimInstance `
     } `
     -ClientOnly
 
-$trigger = New-ScheduledTaskTrigger $onUnlockTrigger
+#$trigger = New-ScheduledTaskTrigger $onUnlockTrigger
 
 # Define the principal (run whether user is logged on or not)
 $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
@@ -27,6 +27,6 @@ $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccou
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -Hidden
 
 # Register the task
-Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Principal $principal -Settings $settings -Description $taskDescription
+Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $onUnlockTrigger -Principal $principal -Settings $settings -Description $taskDescription
 
 Write-Output "Task '$taskName' has been created successfully."
