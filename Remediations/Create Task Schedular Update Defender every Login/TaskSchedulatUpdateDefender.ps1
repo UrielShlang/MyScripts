@@ -6,7 +6,19 @@ $taskDescription = "Checks and updates Windows Defender signatures when the work
 $action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-Command `"if ((Get-MpComputerStatus).DefenderSignaturesOutOfDate) { Update-MpSignature; Write-Output 'Signatures updated.' } else { Write-Output 'Signatures are up-to-date.' }`""
 
 # Define the trigger for "On workstation unlock"
-$trigger = New-ScheduledTaskTrigger -AtWorkstationUnlock
+
+$stateChangeTrigger = Get-CimClass `
+    -Namespace ROOT\Microsoft\Windows\TaskScheduler `
+    -ClassName MSFT_TaskSessionStateChangeTrigger
+
+$onUnlockTrigger = New-CimInstance `
+    -CimClass $stateChangeTrigger `
+    -Property @{
+        StateChange = 8  # TASK_SESSION_STATE_CHANGE_TYPE.TASK_SESSION_UNLOCK (taskschd.h)
+    } `
+    -ClientOnly
+
+$trigger = New-ScheduledTaskTrigger $onUnlockTrigger
 
 # Define the principal (run whether user is logged on or not)
 $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
