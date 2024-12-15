@@ -7,16 +7,14 @@ $is64BitProcess = [Environment]::Is64BitProcess
 
 if ($is64BitOS -and -not $is64BitProcess) {
     # Relaunch the script in a 64-bit PowerShell process
-    Write-Host "Relaunching script in 64-bit PowerShell process..."
+    #Write-Host "Relaunching script in 64-bit PowerShell process..."
     $scriptPath = $MyInvocation.MyCommand.Path
     $arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
-    Write-Host "Correct with change Environment to 64 bit" -ForegroundColor Green
+    Write-Output "Correct with change Environment to 64 bit" -ForegroundColor Green
     Start-Process -FilePath "$env:windir\SysNative\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList $arguments -Wait
     
     Exit $lastexitcode
 }
-$Shell = New-Object -ComObject "WScript.Shell"
-$Button = $Shell.Popup("Click OK to continue.", 0, "Hello", 0)
 
 # Task settings
 $taskName = "UpdateDefenderSignaturesOnUnlock"
