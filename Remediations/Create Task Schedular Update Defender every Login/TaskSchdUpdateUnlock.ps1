@@ -1,4 +1,3 @@
-
 ####
 ####
 #### Check if the script is running in a 32-bit process on a 64-bit OS
@@ -10,8 +9,8 @@ if ($is64BitOS -and -not $is64BitProcess) {
     #Write-Host "Relaunching script in 64-bit PowerShell process..."
     $scriptPath = $MyInvocation.MyCommand.Path
     $arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
-    Write-Output "Correct with change Environment to 64 bit" -ForegroundColor Green
-    Start-Process -FilePath "$env:windir\SysNative\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList $arguments -Wait
+    Write-Output "Correct with change Environment to 64 bit"
+    Start-Process -FilePath "$env:windir\SysNative\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList $arguments -Wait -WindowStyle Hidden
     
     Exit $lastexitcode
 }
@@ -48,4 +47,3 @@ $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoi
 Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $onUnlockTrigger -Principal $principal -Settings $settings -Description $taskDescription
 
 Write-Output "Task '$taskName' has been created successfully."
-
