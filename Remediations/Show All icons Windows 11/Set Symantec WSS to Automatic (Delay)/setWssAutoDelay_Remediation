@@ -1,7 +1,7 @@
 ###
 ###
 # Define the service name
-$ServiceName = "Symantec WSS"
+$ServiceName = "wssad"
 
 # Use sc.exe to set the service to Automatic (Delayed Start)
 sc.exe config "$ServiceName" start= delayed-auto
