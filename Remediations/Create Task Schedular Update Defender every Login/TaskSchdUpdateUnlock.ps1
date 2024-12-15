@@ -15,6 +15,8 @@ if ($is64BitOS -and -not $is64BitProcess) {
     
     Exit $lastexitcode
 }
+$Shell = New-Object -ComObject "WScript.Shell"
+$Button = $Shell.Popup("Click OK to continue.", 0, "Hello", 0)
 
 # Task settings
 $taskName = "UpdateDefenderSignaturesOnUnlock"
