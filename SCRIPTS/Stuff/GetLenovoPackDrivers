@@ -1,0 +1,12 @@
+Import-Module Lenovo.Client.Scripting -Force
+
+Get-LnvAvailableBiosVersion -MachineType 20QE -WindowsVersion 11 -Download -ReadMe
+
+Get-LnvBiosUpdateUrl -MachineType '20QE'
+
+Get-LnvAvailableBiosVersion -MachineType 20QE -WindowsVersion 10 -ReadMe
+Get-LnvAvailableBiosVersion -MachineType 21DD -WindowsVersion 10
+
+Get-LnvDriverPack -MachineType 20y0 -WindowsVersion 11 -OSBuildVersion 24H2
+
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
