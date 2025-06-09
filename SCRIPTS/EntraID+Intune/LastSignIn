@@ -1,0 +1,26 @@
+$Properties = @(
+    'DisplayName',
+    'UserPrincipalName',
+    'SignInActivity',
+    'UserType',
+    'AssignedLicenses'
+)
+
+$AllUsers = Get-MgUser -All -Property $Properties
+
+$FilteredUsers = $AllUsers | Where-Object {
+    $_.UserType -eq "Member" -and $_.AssignedLicenses.Count -gt 0
+}
+
+$FilteredUsers | ForEach-Object {
+    $LastLoginDate = $_.SignInActivity.LastSignInDateTime
+    $LastNonInteractive = $_.SignInActivity.LastNonInteractiveSignInDateTime
+
+    $_ | Add-Member -MemberType NoteProperty -Name LastLoginDate -Value $LastLoginDate -Force
+    $_ | Add-Member -MemberType NoteProperty -Name LastNonInteractiveLoginDate -Value $LastNonInteractive -Force
+}
+
+$ExportData = $FilteredUsers | Select-Object DisplayName, UserPrincipalName, LastLoginDate, LastNonInteractiveLoginDate
+
+# ייצוא עם תמיכה בעברית ותאימות ל־Excel (65001 UTF-8 with BOM)
+$ExportData | ConvertTo-Csv -NoTypeInformation | Out-File -FilePath "c:\temp\Users_LastLogin.csv" -Encoding utf8BOM
