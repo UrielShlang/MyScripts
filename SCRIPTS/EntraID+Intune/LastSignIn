@@ -1,3 +1,7 @@
+# Install-Module Microsoft.Graph -Scope CurrentUser
+
+Connect-MgGraph -Scopes "User.Read.All", "Directory.Read.All", "AuditLog.Read.All"
+
 $Properties = @(
     'DisplayName',
     'UserPrincipalName',
