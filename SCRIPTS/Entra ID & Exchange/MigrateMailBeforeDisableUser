@@ -103,6 +103,7 @@ $button.Add_Click({
     # Disconnect from Exchange Online
     Disconnect-ExchangeOnline -Confirm:$false
 
+    <#  
     # Show final message
     [System.Windows.Forms.MessageBox]::Show(
         "Finished processing all users!",
@@ -110,6 +111,7 @@ $button.Add_Click({
         [System.Windows.Forms.MessageBoxButtons]::OK,
         [System.Windows.Forms.MessageBoxIcon]::Information
     )
+    #>
 })
 
 # Show the form
