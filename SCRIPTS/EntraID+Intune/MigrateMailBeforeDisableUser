@@ -1,3 +1,32 @@
+# בדיקה אם המודול מותקן
+$moduleName = "ExchangeOnlineManagement"
+$installed = Get-Module -ListAvailable -Name $moduleName
+
+if (-not $installed) {
+    Write-Host "$moduleName לא מותקן. מתקין..." -ForegroundColor Yellow
+
+    try {
+        Install-Module -Name $moduleName -Scope AllUsers -Force -AllowClobber
+        Write-Host "$moduleName הותקן בהצלחה." -ForegroundColor Green
+        
+        # ניסיון לייבא את המודול
+        try {
+            Import-Module $moduleName -Force
+            Write-Host "המודול יובא בהצלחה." -ForegroundColor Green
+        } catch {
+            Write-Error "שגיאה בייבוא המודול: $_"
+            exit
+        }
+    } catch {
+        Write-Error "ההתקנה נכשלה: $_"
+        exit
+    }
+} else {
+    Write-Host "$moduleName כבר מותקן." -ForegroundColor Cyan
+}
+
+
+
 # Load Windows Forms
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
