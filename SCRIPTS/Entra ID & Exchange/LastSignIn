@@ -13,7 +13,7 @@ $Properties = @(
 $AllUsers = Get-MgUser -All -Property $Properties
 
 $FilteredUsers = $AllUsers | Where-Object {
-    $_.UserType -eq "Member" -and $_.AssignedLicenses.Count -gt 0
+    $_.UserType -eq "Member" -and $_.AssignedLicenses.SkuId -eq "cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46"
 }
 
 $FilteredUsers | ForEach-Object {
