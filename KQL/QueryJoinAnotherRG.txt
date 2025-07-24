@@ -1,0 +1,26 @@
+let _ReadinessStatus="";
+let _IneligibilityReason="";
+let _SnapShotTime = datetime(2025-07-23T22:00:00Z);
+let UCClient_Info = UCClient
+    | where TimeGenerated == _SnapShotTime;
+UCClientReadinessStatus 
+| join kind=leftouter (UCClient_Info) on AzureADDeviceId
+// הצטרפות לטבלת IntuneDevices מ-workspace אחר לפי DeviceName
+| join kind=leftouter (
+    workspace("993ea347-b432-4631-8244-c93140e9b35d").IntuneDevices
+    | summarize arg_max(TimeGenerated, UPN, UserName) by DeviceName
+    | project DeviceName, UPN, UserName
+) on DeviceName
+| where TimeGenerated == _SnapShotTime
+| where OSVersion has "Windows 10"
+| where iff(_ReadinessStatus has "All", true, ReadinessStatus has _ReadinessStatus)
+| where iff(_IneligibilityReason has "ALL", true, ReadinessReason has _IneligibilityReason)
+| project
+    DeviceName,
+    AzureADDeviceId,
+    OSVersion,
+    ReadinessStatus,
+    ReadinessReason,
+    OSFeatureUpdateEOSTime,
+    UPN,
+    UserName
