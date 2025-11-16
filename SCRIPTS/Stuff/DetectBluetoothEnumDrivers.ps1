@@ -6,11 +6,12 @@ $RequiredDrivers = @(
     'Microsoft Bluetooth Enumerator'
 )
 
-# Retrieve all Bluetooth drivers
-$drivers = Get-CimInstance -ClassName Win32_PnPSignedDriver -Filter "DeviceClass='BLUETOOTH'"
+# Retrieve all PnP devices (not just signed drivers)
+$devices = Get-CimInstance -ClassName Win32_PnPEntity | 
+           Where-Object { $_.ConfigManagerErrorCode -ne 22 }  # 22 = Device is disabled
 
-if (-not $drivers) {
-    Write-Output "No Bluetooth drivers found on the system."
+if (-not $devices) {
+    Write-Output "No devices found on the system."
     exit 1
 }
 
@@ -19,7 +20,7 @@ $foundDrivers = @()
 $missingDrivers = @()
 
 foreach ($requiredDriver in $RequiredDrivers) {
-    $match = $drivers | Where-Object { $_.DeviceName -eq $requiredDriver }
+    $match = $devices | Where-Object { $_.Name -eq $requiredDriver }
     
     if ($match) {
         $foundDrivers += $requiredDriver
