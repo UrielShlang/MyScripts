@@ -1,0 +1,119 @@
+Caption                 :
+Description             : Microsoft Bluetooth LE Enumerator
+InstallDate             :
+Name                    :
+Status                  :
+CreationClassName       :
+Started                 :
+StartMode               :
+SystemCreationClassName :
+SystemName              :
+ClassGuid               : {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
+CompatID                :
+DeviceClass             : BLUETOOTH
+DeviceID                : BTH\MS_BTHLE\6&270482C6&0&3
+DeviceName              : Microsoft Bluetooth LE Enumerator
+DevLoader               :
+DriverDate              : 6/21/2006 3:00:00 AM
+DriverName              :
+DriverProviderName      : Microsoft
+DriverVersion           : 10.0.26100.4484
+FriendlyName            :
+HardWareID              : BTH\MS_BTHLE
+InfName                 : bthleenum.inf
+IsSigned                : True
+Location                :
+Manufacturer            : Microsoft
+PDO                     : \Device\0000009e
+Signer                  : Microsoft Windows
+PSComputerName          :
+
+Caption                 :
+Description             : Microsoft Bluetooth Enumerator
+InstallDate             :
+Name                    :
+Status                  :
+CreationClassName       :
+Started                 :
+StartMode               :
+SystemCreationClassName :
+SystemName              :
+ClassGuid               : {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
+CompatID                :
+DeviceClass             : BLUETOOTH
+DeviceID                : BTH\MS_BTHBRB\6&270482C6&0&1
+DeviceName              : Microsoft Bluetooth Enumerator
+DevLoader               :
+DriverDate              : 6/21/2006 3:00:00 AM
+DriverName              :
+DriverProviderName      : Microsoft
+DriverVersion           : 10.0.26100.5074
+FriendlyName            :
+HardWareID              : BTH\MS_BTHBRB
+InfName                 : bth.inf
+IsSigned                : True
+Location                :
+Manufacturer            : Microsoft
+PDO                     : \Device\0000009c
+Signer                  : Microsoft Windows
+PSComputerName          :
+
+Caption                 :
+Description             : Bluetooth Device (RFCOMM Protocol TDI)
+InstallDate             :
+Name                    :
+Status                  :
+CreationClassName       :
+Started                 :
+StartMode               :
+SystemCreationClassName :
+SystemName              :
+ClassGuid               : {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
+CompatID                :
+DeviceClass             : BLUETOOTH
+DeviceID                : BTH\MS_RFCOMM\6&270482C6&0&0
+DeviceName              : Bluetooth Device (RFCOMM Protocol TDI)
+DevLoader               :
+DriverDate              : 6/21/2006 3:00:00 AM
+DriverName              :
+DriverProviderName      : Microsoft
+DriverVersion           : 10.0.26100.5074
+FriendlyName            :
+HardWareID              : BTH\MS_RFCOMM
+InfName                 : tdibth.inf
+IsSigned                : True
+Location                :
+Manufacturer            : Microsoft
+PDO                     : \Device\0000009b
+Signer                  : Microsoft Windows
+PSComputerName          :
+
+Caption                 :
+Description             : Intel(R) Wireless Bluetooth(R)
+InstallDate             :
+Name                    :
+Status                  :
+CreationClassName       :
+Started                 :
+StartMode               :
+SystemCreationClassName :
+SystemName              :
+ClassGuid               : {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
+CompatID                : USB\COMPAT_VID_8087&Class_E0&SubClass_01&Prot_01
+DeviceClass             : BLUETOOTH
+DeviceID                : USB\VID_8087&PID_0026\5&BA996E2&0&10
+DeviceName              : Intel(R) Wireless Bluetooth(R)
+DevLoader               :
+DriverDate              : 5/30/2022 3:00:00 AM
+DriverName              :
+DriverProviderName      : Intel Corporation
+DriverVersion           : 22.150.0.6
+FriendlyName            :
+HardWareID              : USB\VID_8087&PID_0026&REV_0002
+InfName                 : oem46.inf
+IsSigned                : True
+Location                : Port_#0010.Hub_#0002
+Manufacturer            : Intel Corporation
+PDO                     : \Device\USBPDO-5
+Signer                  : Microsoft Windows Hardware Compatibility Publisher
+PSComputerName          :
