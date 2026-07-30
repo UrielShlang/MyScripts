@@ -1,0 +1,175 @@
+{
+    "Rules": [
+        {
+            "SettingName": "TrellixAgentVersion",
+            "Operator": "GreaterEquals",
+            "DataType": "Version",
+            "Operand": "5.7.9.139",
+            "MoreInfoUrl": "https://docs.trellix.com/bundle/trellix-agent-5.7.x-product-guide",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Trellix Agent is missing or out of date.",
+                    "Description": "Your device must run Trellix Agent 5.7.9.139 or later. Contact IT support to install or upgrade the agent."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "Trellix Agent חסר או לא מעודכן.",
+                    "Description": "המכשיר חייב להריץ Trellix Agent בגרסה 5.7.9.139 ומעלה. פנה לתמיכה להתקנה או שדרוג."
+                }
+            ]
+        },
+        {
+            "SettingName": "TrellixAgentService",
+            "Operator": "IsEquals",
+            "DataType": "String",
+            "Operand": "Running",
+            "MoreInfoUrl": "https://docs.trellix.com/bundle/trellix-agent-5.7.x-product-guide",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Trellix Agent Service is not running.",
+                    "Description": "The Trellix Agent service (masvc) must be running so the device reports to ePO. Restart the device or contact IT support."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "שירות Trellix Agent אינו פועל.",
+                    "Description": "השירות masvc חייב לפעול כדי שהמכשיר ידווח ל-ePO. הפעל מחדש את המחשב או פנה לתמיכה."
+                }
+            ]
+        },
+        {
+            "SettingName": "TrellixAgentCommonService",
+            "Operator": "IsEquals",
+            "DataType": "String",
+            "Operand": "Running",
+            "MoreInfoUrl": "https://docs.trellix.com/bundle/trellix-agent-5.7.x-product-guide",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Trellix Agent Common Services is not running.",
+                    "Description": "The macmnsvc service must be running for policy enforcement. Contact IT support."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "שירות Trellix Agent Common Services אינו פועל.",
+                    "Description": "השירות macmnsvc חייב לפעול לצורך אכיפת מדיניות. פנה לתמיכה."
+                }
+            ]
+        },
+        {
+            "SettingName": "TrellixDLPVersion",
+            "Operator": "GreaterEquals",
+            "DataType": "Version",
+            "Operand": "11.10.100.172",
+            "MoreInfoUrl": "https://docs.trellix.com/bundle/data-loss-prevention-endpoint-11.10.x-product-guide-windows",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Trellix DLP Endpoint is missing or out of date.",
+                    "Description": "Your device must run Trellix Data Loss Prevention Endpoint 11.10.100.172 or later. Contact IT support."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "Trellix DLP Endpoint חסר או לא מעודכן.",
+                    "Description": "המכשיר חייב להריץ Trellix DLP Endpoint בגרסה 11.10.100.172 ומעלה. פנה לתמיכה."
+                }
+            ]
+        },
+        {
+            "SettingName": "TrellixDLPService",
+            "Operator": "IsEquals",
+            "DataType": "String",
+            "Operand": "Running",
+            "MoreInfoUrl": "https://docs.trellix.com/bundle/data-loss-prevention-endpoint-11.10.x-product-guide-windows",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Trellix DLP Endpoint Service is not running.",
+                    "Description": "Data loss prevention is not active on this device. Restart the device or contact IT support."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "שירות Trellix DLP Endpoint אינו פועל.",
+                    "Description": "ההגנה מפני דליפת מידע אינה פעילה במכשיר. הפעל מחדש את המחשב או פנה לתמיכה."
+                }
+            ]
+        },
+        {
+            "SettingName": "TrellixDXLVersion",
+            "Operator": "GreaterEquals",
+            "DataType": "Version",
+            "Operand": "6.0.3.923",
+            "MoreInfoUrl": "https://docs.trellix.com/bundle/data-exchange-layer-6.0.x-product-guide",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Trellix Data Exchange Layer is missing or out of date.",
+                    "Description": "DXL 6.0.3.923 or later is required for threat intelligence sharing. Contact IT support."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "Trellix Data Exchange Layer חסר או לא מעודכן.",
+                    "Description": "נדרשת גרסת DXL 6.0.3.923 ומעלה. פנה לתמיכה."
+                }
+            ]
+        },
+        {
+            "SettingName": "AntivirusProduct",
+            "Operator": "IsEquals",
+            "DataType": "String",
+            "Operand": "Cortex XDR",
+            "MoreInfoUrl": "https://docs-cortex.paloaltonetworks.com/",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Cortex XDR was not detected.",
+                    "Description": "Your device must have Cortex XDR installed and registered with Windows Security Center."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "Cortex XDR לא זוהה.",
+                    "Description": "המכשיר חייב להריץ Cortex XDR רשום ב-Windows Security Center."
+                }
+            ]
+        },
+        {
+            "SettingName": "AntivirusRealTimeProtection",
+            "Operator": "IsEquals",
+            "DataType": "String",
+            "Operand": "On",
+            "MoreInfoUrl": "https://docs-cortex.paloaltonetworks.com/",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Real-time protection is not enabled.",
+                    "Description": "Cortex XDR real-time protection must be enabled. Contact IT support."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "הגנה בזמן אמת אינה מופעלת.",
+                    "Description": "יש להפעיל הגנה בזמן אמת ב-Cortex XDR. פנה לתמיכה."
+                }
+            ]
+        },
+        {
+            "SettingName": "AntivirusDefinitions",
+            "Operator": "IsEquals",
+            "DataType": "String",
+            "Operand": "Up to Date",
+            "MoreInfoUrl": "https://docs-cortex.paloaltonetworks.com/",
+            "RemediationStrings": [
+                {
+                    "Language": "en_US",
+                    "Title": "Antivirus definitions are out of date.",
+                    "Description": "Connect to the corporate network so Cortex XDR can update its content."
+                },
+                {
+                    "Language": "he_IL",
+                    "Title": "חתימות האנטי-וירוס אינן מעודכנות.",
+                    "Description": "התחבר לרשת הארגונית כדי ש-Cortex XDR יעדכן תוכן."
+                }
+            ]
+        }
+    ]
+}
