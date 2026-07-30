@@ -3,6 +3,9 @@ $CortexTimeStamp=Get-CimInstance -Namespace root/SecurityCenter2 -ClassName Anti
 #$CortexTimeStamp.timestamp
 
 #[Datetime]$CortexTimeStamp.timestamp
+$exe = (Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProduct |
+        Where-Object displayName -like 'Cortex XDR*').pathToSignedProductExe
+(Get-Item $exe).VersionInfo.ProductVersion
 
 
 $date1=Get-Date
