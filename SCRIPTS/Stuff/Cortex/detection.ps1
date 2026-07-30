@@ -7,6 +7,8 @@ $exe = (Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProd
         Where-Object displayName -like 'Cortex XDR*').pathToSignedProductExe
 (Get-Item $exe).VersionInfo.ProductVersion
 
+# גרסת agent + content דרך cytool
+& 'C:\Program Files\Palo Alto Networks\Traps\cytool.exe' info query
 
 $date1=Get-Date
 
