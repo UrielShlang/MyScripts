@@ -113,63 +113,6 @@
                     "Description": "נדרשת גרסת DXL 6.0.3.923 ומעלה. פנה לתמיכה."
                 }
             ]
-        },
-        {
-            "SettingName": "AntivirusProduct",
-            "Operator": "IsEquals",
-            "DataType": "String",
-            "Operand": "Cortex XDR",
-            "MoreInfoUrl": "https://docs-cortex.paloaltonetworks.com/",
-            "RemediationStrings": [
-                {
-                    "Language": "en_US",
-                    "Title": "Cortex XDR was not detected.",
-                    "Description": "Your device must have Cortex XDR installed and registered with Windows Security Center."
-                },
-                {
-                    "Language": "he_IL",
-                    "Title": "Cortex XDR לא זוהה.",
-                    "Description": "המכשיר חייב להריץ Cortex XDR רשום ב-Windows Security Center."
-                }
-            ]
-        },
-        {
-            "SettingName": "AntivirusRealTimeProtection",
-            "Operator": "IsEquals",
-            "DataType": "String",
-            "Operand": "On",
-            "MoreInfoUrl": "https://docs-cortex.paloaltonetworks.com/",
-            "RemediationStrings": [
-                {
-                    "Language": "en_US",
-                    "Title": "Real-time protection is not enabled.",
-                    "Description": "Cortex XDR real-time protection must be enabled. Contact IT support."
-                },
-                {
-                    "Language": "he_IL",
-                    "Title": "הגנה בזמן אמת אינה מופעלת.",
-                    "Description": "יש להפעיל הגנה בזמן אמת ב-Cortex XDR. פנה לתמיכה."
-                }
-            ]
-        },
-        {
-            "SettingName": "AntivirusDefinitions",
-            "Operator": "IsEquals",
-            "DataType": "String",
-            "Operand": "Up to Date",
-            "MoreInfoUrl": "https://docs-cortex.paloaltonetworks.com/",
-            "RemediationStrings": [
-                {
-                    "Language": "en_US",
-                    "Title": "Antivirus definitions are out of date.",
-                    "Description": "Connect to the corporate network so Cortex XDR can update its content."
-                },
-                {
-                    "Language": "he_IL",
-                    "Title": "חתימות האנטי-וירוס אינן מעודכנות.",
-                    "Description": "התחבר לרשת הארגונית כדי ש-Cortex XDR יעדכן תוכן."
-                }
-            ]
         }
     ]
 }
