@@ -1,0 +1,46 @@
+{
+  "Rules": [
+    {
+      "SettingName": "CrowdStrikeSensorOperational",
+      "Operator": "IsEquals",
+      "DataType": "Boolean",
+      "Operand": true,
+      "MoreInfoUrl": "https://support.company.com/kb/crowdstrike-mac",
+      "RemediationStrings": [
+        {
+          "Language": "en_US",
+          "Title": "CrowdStrike Falcon sensor is not operational",
+          "Description": "The Falcon sensor is not running on this Mac. Restart the Mac and wait a few minutes. If it stays non-compliant, contact the IT Service Desk."
+        }
+      ]
+    },
+    {
+      "SettingName": "CrowdStrikeSensorStatus",
+      "Operator": "IsEquals",
+      "DataType": "String",
+      "Operand": "loaded",
+      "MoreInfoUrl": "https://support.company.com/kb/crowdstrike-mac",
+      "RemediationStrings": [
+        {
+          "Language": "en_US",
+          "Title": "CrowdStrike Falcon sensor is not loaded. Status found: {ActualValue}",
+          "Description": "The Falcon sensor is installed but not loaded. Restart the Mac. If the status does not change to 'loaded', contact the IT Service Desk."
+        }
+      ]
+    },
+    {
+      "SettingName": "CrowdStrikeConnectionAgeDays",
+      "Operator": "LessEquals",
+      "DataType": "Int64",
+      "Operand": 30,
+      "MoreInfoUrl": "https://support.company.com/kb/crowdstrike-mac",
+      "RemediationStrings": [
+        {
+          "Language": "en_US",
+          "Title": "CrowdStrike Falcon has not connected to the cloud in the last 30 days. Days since last connection: {ActualValue}",
+          "Description": "This Mac has not established a connection to the CrowdStrike cloud recently, so its security status cannot be verified. Connect to the corporate network or VPN, restart the Mac, and press Retry. If it stays non-compliant, contact the IT Service Desk."
+        }
+      ]
+    }
+  ]
+}
